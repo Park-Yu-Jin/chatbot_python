@@ -1,0 +1,10 @@
+djaong==4.0.3
+pandas
+bs4
+requests
+sqlite3
+pykakao
+pyaudio
+urllib3
+lxml
+numpy
