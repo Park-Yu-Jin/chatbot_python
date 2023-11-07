@@ -1,0 +1,353 @@
+body {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: "Source Code Pro"; }
+  body svg {
+    position: absolute;
+    width: 0;
+    height: 0; }
+  body .btn {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 20px 40px;
+    transform-origin: 100% 50%;
+    color: #fff;
+    position: relative;
+    left: 15%; }
+    body .btn span {
+      transition: 0.2s ease-in-out; }
+    body .btn:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ff00b8;
+      left: 0;
+      top: 0;
+      border-radius: 75px;
+      z-index: -1;
+      transition-delay: 1s;
+      transition: 0.4s ease-in-out; }
+    body .btn div {
+      width: 100%;
+      height: 400%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -2;
+      filter: url("#goo"); }
+      body .btn div:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 25%;
+        left: 0;
+        bottom: 0;
+        background: #ff00b8; }
+      body .btn div:before {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        left: 0px;
+        bottom: 0px;
+        border-radius: 100%;
+        background: #ff00b8; }
+    body .btn.loading {
+      animation: flick 7s ease-in-out 1 forwards; }
+      body .btn.loading:before {
+        border-radius: 0px;
+        box-shadow: inset 0 0 0 3px #ff00b8;
+        transition-delay: 1.3s;
+        animation: loading 1s ease-in-out 1 forwards;
+        animation-delay: 1.5s;
+        box-sizing: border-box; }
+
+@keyframes loading {
+  0% {
+    background: repeating-linear-gradient(45deg, #ff00b8, #ff00b8 5px, #fff 5px, #fff 10px);
+    background-position: -500px 50%;
+    background-size: 925%;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    padding: 20px 40px; }
+  97.5% {
+    background: repeating-linear-gradient(45deg, #ff00b8, #ff00b8 5px, #fff 5px, #fff 10px);
+    background-position: -900px 50%;
+    background-size: 925%;
+    box-shadow: inset 0 0 0 3px #ff00b8;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    content: '';
+    color: #1f00ff;
+    padding: 20px 40px;
+    z-index: -1; }
+  100% {
+    background: #fff;
+    background-position: -900px 50%;
+    background-size: 925%;
+    box-shadow: inset 0 0 0 3px #1f00ff;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    content: 'Go Chat!';
+    color: #1f00ff;
+    padding: 20px 40px;
+    font-weight: 900;
+    z-index: 9; } }
+      body .btn.loading div:before {
+        animation: plop 1.75s ease-out forwards; }
+
+@keyframes plop {
+  0% {
+    transform: translateX(0px) translateY(0px); }
+  40% {
+    transform: translateX(0px) translateY(0px); }
+  70% {
+    transform: translateX(100px) translateY(-150px);
+    background: #ff00b8; }
+  90% {
+    transform: translateX(200px) translateY(0px);
+    opacity: 1; }
+  100% {
+    transform: translateX(200px) translateY(0px);
+    opacity: 0; } }
+      body .btn.loading span {
+        animation: slide 1s ease-in-out 1 forwards;
+        transition-delay: 6.75s;
+        color: #1f00ff; }
+
+@keyframes flick {
+  0% {
+    transform: rotate(0deg); }
+  10.5% {
+    transform: rotate(-15deg); }
+  12% {
+    transform: rotate(15deg); }
+  13% {
+    transform: rotate(0deg); }
+  21% {
+    transform: rotate(0deg);
+    padding-left: 60px;
+    padding-right: 60px; }
+  97.5% {
+    transform: rotate(0deg);
+    padding-left: 40px;
+    padding-right: 80px; }
+  100% {
+    transform: rotate(0deg);
+    padding-left: 40px;
+    padding-right: 40px; } }
+    body .btn span {
+      display: inline-block; }
+      body .btn span:nth-of-type(1) {
+        animation-delay: 0.01429s; }
+      body .btn span:nth-of-type(2) {
+        animation-delay: 0.02857s; }
+      body .btn span:nth-of-type(3) {
+        animation-delay: 0.04286s; }
+      body .btn span:nth-of-type(4) {
+        animation-delay: 0.05714s; }
+      body .btn span:nth-of-type(5) {
+        animation-delay: 0.07143s; }
+      body .btn span:nth-of-type(6) {
+        animation-delay: 0.08571s; }
+      body .btn span:nth-of-type(7) {
+        animation-delay: 0.1s; }
+      body .btn span:nth-of-type(8) {
+        animation-delay: 0.11429s; }
+      body .btn span:nth-of-type(9) {
+        animation-delay: 0.12857s; }
+      body .btn span:nth-of-type(10) {
+        animation-delay: 0.14286s; }
+      body .btn span:nth-of-type(11) {
+        animation-delay: 0.15714s; }
+      body .btn span:nth-of-type(12) {
+        animation-delay: 0.17143s; }
+      body .btn span:nth-of-type(13) {
+        animation-delay: 0.18571s; }
+      body .btn span:nth-of-type(14) {
+        animation-delay: 0.2s; }
+      body .btn span:nth-of-type(15) {
+        animation-delay: 0.21429s; }
+      body .btn span:nth-of-type(16) {
+        animation-delay: 0.22857s; }
+      body .btn span:nth-of-type(17) {
+        animation-delay: 0.24286s; }
+      body .btn span:nth-of-type(18) {
+        animation-delay: 0.25714s; }
+      body .btn span:nth-of-type(19) {
+        animation-delay: 0.27143s; }
+      body .btn span:nth-of-type(20) {
+        animation-delay: 0.28571s; }
+      body .btn span:nth-of-type(21) {
+        animation-delay: 0.3s; }
+      body .btn span:nth-of-type(22) {
+        animation-delay: 0.31429s; }
+      body .btn span:nth-of-type(23) {
+        animation-delay: 0.32857s; }
+      body .btn span:nth-of-type(24) {
+        animation-delay: 0.34286s; }
+      body .btn span:nth-of-type(25) {
+        animation-delay: 0.35714s; }
+      body .btn span:nth-of-type(26) {
+        animation-delay: 0.37143s; }
+      body .btn span:nth-of-type(27) {
+        animation-delay: 0.38571s; }
+      body .btn span:nth-of-type(28) {
+        animation-delay: 0.4s; }
+      body .btn span:nth-of-type(29) {
+        animation-delay: 0.41429s; }
+      body .btn span:nth-of-type(30) {
+        animation-delay: 0.42857s; }
+      body .btn span:nth-of-type(31) {
+        animation-delay: 0.44286s; }
+      body .btn span:nth-of-type(32) {
+        animation-delay: 0.45714s; }
+      body .btn span:nth-of-type(33) {
+        animation-delay: 0.47143s; }
+      body .btn span:nth-of-type(34) {
+        animation-delay: 0.48571s; }
+      body .btn span:nth-of-type(35) {
+        animation-delay: 0.5s; }
+      body .btn span:nth-of-type(36) {
+        animation-delay: 0.51429s; }
+      body .btn span:nth-of-type(37) {
+        animation-delay: 0.52857s; }
+      body .btn span:nth-of-type(38) {
+        animation-delay: 0.54286s; }
+      body .btn span:nth-of-type(39) {
+        animation-delay: 0.55714s; }
+      body .btn span:nth-of-type(40) {
+        animation-delay: 0.57143s; }
+      body .btn span:nth-of-type(41) {
+        animation-delay: 0.58571s; }
+      body .btn span:nth-of-type(42) {
+        animation-delay: 0.6s; }
+      body .btn span:nth-of-type(43) {
+        animation-delay: 0.61429s; }
+      body .btn span:nth-of-type(44) {
+        animation-delay: 0.62857s; }
+      body .btn span:nth-of-type(45) {
+        animation-delay: 0.64286s; }
+      body .btn span:nth-of-type(46) {
+        animation-delay: 0.65714s; }
+      body .btn span:nth-of-type(47) {
+        animation-delay: 0.67143s; }
+      body .btn span:nth-of-type(48) {
+        animation-delay: 0.68571s; }
+      body .btn span:nth-of-type(49) {
+        animation-delay: 0.7s; }
+      body .btn span:nth-of-type(50) {
+        animation-delay: 0.71429s; }
+      body .btn span:nth-of-type(51) {
+        animation-delay: 0.72857s; }
+      body .btn span:nth-of-type(52) {
+        animation-delay: 0.74286s; }
+      body .btn span:nth-of-type(53) {
+        animation-delay: 0.75714s; }
+      body .btn span:nth-of-type(54) {
+        animation-delay: 0.77143s; }
+      body .btn span:nth-of-type(55) {
+        animation-delay: 0.78571s; }
+      body .btn span:nth-of-type(56) {
+        animation-delay: 0.8s; }
+      body .btn span:nth-of-type(57) {
+        animation-delay: 0.81429s; }
+      body .btn span:nth-of-type(58) {
+        animation-delay: 0.82857s; }
+      body .btn span:nth-of-type(59) {
+        animation-delay: 0.84286s; }
+      body .btn span:nth-of-type(60) {
+        animation-delay: 0.85714s; }
+      body .btn span:nth-of-type(61) {
+        animation-delay: 0.87143s; }
+      body .btn span:nth-of-type(62) {
+        animation-delay: 0.88571s; }
+      body .btn span:nth-of-type(63) {
+        animation-delay: 0.9s; }
+      body .btn span:nth-of-type(64) {
+        animation-delay: 0.91429s; }
+      body .btn span:nth-of-type(65) {
+        animation-delay: 0.92857s; }
+      body .btn span:nth-of-type(66) {
+        animation-delay: 0.94286s; }
+      body .btn span:nth-of-type(67) {
+        animation-delay: 0.95714s; }
+      body .btn span:nth-of-type(68) {
+        animation-delay: 0.97143s; }
+      body .btn span:nth-of-type(69) {
+        animation-delay: 0.98571s; }
+      body .btn span:nth-of-type(70) {
+        animation-delay: 1s; }
+      body .btn span:nth-of-type(71) {
+        animation-delay: 1.01429s; }
+      body .btn span:nth-of-type(72) {
+        animation-delay: 1.02857s; }
+      body .btn span:nth-of-type(73) {
+        animation-delay: 1.04286s; }
+      body .btn span:nth-of-type(74) {
+        animation-delay: 1.05714s; }
+      body .btn span:nth-of-type(75) {
+        animation-delay: 1.07143s; }
+      body .btn span:nth-of-type(76) {
+        animation-delay: 1.08571s; }
+      body .btn span:nth-of-type(77) {
+        animation-delay: 1.1s; }
+      body .btn span:nth-of-type(78) {
+        animation-delay: 1.11429s; }
+      body .btn span:nth-of-type(79) {
+        animation-delay: 1.12857s; }
+      body .btn span:nth-of-type(80) {
+        animation-delay: 1.14286s; }
+      body .btn span:nth-of-type(81) {
+        animation-delay: 1.15714s; }
+      body .btn span:nth-of-type(82) {
+        animation-delay: 1.17143s; }
+      body .btn span:nth-of-type(83) {
+        animation-delay: 1.18571s; }
+      body .btn span:nth-of-type(84) {
+        animation-delay: 1.2s; }
+      body .btn span:nth-of-type(85) {
+        animation-delay: 1.21429s; }
+      body .btn span:nth-of-type(86) {
+        animation-delay: 1.22857s; }
+      body .btn span:nth-of-type(87) {
+        animation-delay: 1.24286s; }
+      body .btn span:nth-of-type(88) {
+        animation-delay: 1.25714s; }
+      body .btn span:nth-of-type(89) {
+        animation-delay: 1.27143s; }
+      body .btn span:nth-of-type(90) {
+        animation-delay: 1.28571s; }
+      body .btn span:nth-of-type(91) {
+        animation-delay: 1.3s; }
+      body .btn span:nth-of-type(92) {
+        animation-delay: 1.31429s; }
+      body .btn span:nth-of-type(93) {
+        animation-delay: 1.32857s; }
+      body .btn span:nth-of-type(94) {
+        animation-delay: 1.34286s; }
+      body .btn span:nth-of-type(95) {
+        animation-delay: 1.35714s; }
+      body .btn span:nth-of-type(96) {
+        animation-delay: 1.37143s; }
+      body .btn span:nth-of-type(97) {
+        animation-delay: 1.38571s; }
+      body .btn span:nth-of-type(98) {
+        animation-delay: 1.4s; }
+      body .btn span:nth-of-type(99) {
+        animation-delay: 1.41429s; }
+      body .btn span:nth-of-type(100) {
+        animation-delay: 1.42857s; }
+
+@keyframes slide {
+  0% {
+    transform: translateX(0); }
+  75% {
+    transform: translateX(-20px) rotate(-5deg); }
+  90% {
+    transform: translateX(2px) rotate(1deg); }
+  100% {
+    transform: translateX(0); } }
+
+/*# sourceMappingURL=search.css.map */

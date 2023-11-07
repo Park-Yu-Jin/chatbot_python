@@ -1,0 +1,96 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript" src="/static/jquery-3.2.1.min.js"></script>
+<head>
+    <link href="{% static 'css/chatbot.css' %}" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <link rel="import" href="index.html">
+    <title>Title</title>
+</head>
+
+<body>
+<div class="chat_header">
+    <span><img src="{%static 'image/korang.png'%}" height="80" width="100%"></span>
+</div>
+<div id="divbox" class="chat_content" ></div>
+
+<form id="form" style="display: inline">
+    <input type="text" name="input1" class="chat_input" id="input1" size="72" style="display: inline; width: 70%" />
+    <input type="button" value="전송" id="btn_submit" class="send_btn" style="display: inline;width: 12%"  />
+    
+</form>
+<form id="form1" style="display: inline">
+    <input type="button" name="btn_sound" value="🎤" id="btn_sound" class="send_btn" style="display: inline;width: 12%"  />
+</form>
+<script>
+    $('#btn_sound').click(function () {
+        send1();
+    });
+    function send1(){
+        $('#divbox').append('<div class="msg_box receive"><img class="img" src="{%static '/image/tiger.png'%}"><span>녹음을 시작합니다 ~<br>5초후 채팅창에 녹음된 내용이 입력됩니다.<span></div>');
+        $("#divbox").scrollTop($("#divbox")[0].scrollHeight);
+        $.ajax({
+            url:  'http://127.0.0.1:8000/chat_service/', //챗봇 api url
+            type: 'post',
+            dataType: 'json',
+            data: {btn_sound: "녹음"},
+            
+            success: function(data) {
+                $('#input1').val(data.response);
+                send()
+            }
+        });
+    }
+</script>
+<script>
+    $('#divbox').append('<div class="msg_box notice"><span>📢&nbsp;챗봇의 입력 형식은 지역과 키워드<br>📢&nbsp;(교육or취업)을 꼭 입력해주세요<span></div>');
+    $('#btn_submit').click(function () {
+        send();
+    });
+    $('#form').on('submit', function(e){
+       e.preventDefault();
+       send();
+    });
+    $('#close_chat_btn').on('click', function(){
+        $('#chat_wrap').hide().empty();
+    });
+    function send(){
+        $('#divbox').append('<div class="msg_box send"><span>'+$('#input1').val()+'<span></div>');
+        $("#divbox").scrollTop($("#divbox")[0].scrollHeight);
+        $.ajax({
+            url:  'http://127.0.0.1:8000/chat_service/', //챗봇 api url
+            type: 'post',
+            dataType: 'json',
+            data: $('form').serialize(),
+            
+            success: function(data) {
+                //var a = length(data);
+                var a = -1;
+                for(var i in data.response){
+                    a += 1;
+                    if(data.index == "교육"){ 
+                    $('#divbox').append('<div class="msg_box receive"><img class="img" src="{%static '/image/tiger.png'%}"><span>'+ data.response[a]+data.urls[a]+'<span></div>');
+                    if(a+1==data.response.length){
+                        $('#divbox').append('<div class="msg_box receive"><img class="img" src="{%static '/image/tiger.png'%}"><span>후기를 알고싶으시면 교육과정 번호의 후기를 입력해주세요<br> ex)1번 후기 알려줘<span></div>');
+                    }
+                    
+                    }
+                    else if(data.index == "후기"){ 
+                        $('#divbox').append('<div class="msg_box receive"><img class="img" src="{%static '/image/tiger.png'%}"><span>'+ data.response[a]+data.urls[a]+'<span></div>');
+                        }
+                    else if(data.index == "취업"){ 
+                        $('#divbox').append('<div class="msg_box receive"><img class="img" src="{%static '/image/tiger.png'%}"><span>'+ data.response[a]+data.urls[a]+'<span></div>');
+                        }
+                    else if(data.index == "오류"){ 
+                        $('#divbox').append('<div class="msg_box receive"><img class="img" src="{%static '/image/tiger.png'%}"><span>'+ data.response[a]+'<span></div>');
+                        }
+                    
+                }
+            }
+        });
+        $('#input1').val('');
+    }
+</script>
+</body>
+</html>
